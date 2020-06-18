@@ -64,3 +64,106 @@ const questions = [
     },
 
 ];
+
+// function to initialize the CLI application
+
+function init() {
+    inquirer.prompt(questions).then((response)=>{
+    
+
+    // this is creating the main header for the github repo
+    fs.appendFileSync("README.md", ("# " + response.repoName )+ '\n', function(err) { 
+    
+        if (err) { 
+        console.log(err)
+        }
+        else {
+        console.log("Success")
+        }
+    
+    })
+    
+    // this is creating the name of the application readME
+    fs.appendFileSync("README.md", ("This application was developed by: " + response.gitHubName + '\n') + '\n', function(err) { 
+    
+        if (err) { 
+        console.log(err)
+        }
+        else {
+        console.log("Success")
+        }
+    
+    })
+    // this is creating the description
+    fs.appendFileSync("README.md", ( response.description ) + '\n', function(err) { 
+    
+        if (err) { 
+        console.log(err)
+        }
+        else {
+        console.log("Success")
+        }
+    
+    })
+    // this is creating the installation instructions
+
+    fs.appendFileSync("README.md", ("## Installation" + '\n' + response.installApp )+ '\n', function(err) { 
+    
+        if (err) { 
+        console.log(err)
+        }
+        else {
+        console.log("Success")
+        }
+    
+    })
+    // this is creating the how to use instructions
+    fs.appendFileSync("README.md", ("## How to use the Application" + '\n' + response.appInstructions)+ '\n', function(err) { 
+    
+        if (err) { 
+        console.log(err)
+        }
+        else {
+        console.log("Success")
+        }
+    
+    })
+    // this is creating the section for errors/issues and reporting
+    fs.appendFileSync("README.md", ("## Issue Reporting and Contributing" + '\n' + response.appIssuesAndCont)+ '\n', function(err) { 
+    
+        if (err) { 
+        console.log(err)
+        }
+        else {
+        console.log("Success")
+        }
+    
+    })
+    //  this is creating the section for the contributors
+    fs.appendFileSync("README.md", ("## Other Contibuting Developers:" + '\n' + response.contributors)+ '\n', function(err) { 
+    
+        if (err) { 
+        console.log(err)
+        }
+        else {
+        console.log("Success")
+        }
+    
+    })
+    //  this is creating the license section
+    fs.appendFileSync("README.md", ("## Licence(s)" + '\n' + response.license)+ '\n', function(err) { 
+    
+        if (err) { 
+        console.log(err)
+        }
+        else {
+        console.log("Success")
+        }
+    
+    })
+    
+    })
+    }
+    
+    //runs the function to creat the file 
+    init();
